@@ -11,7 +11,7 @@ local opt = vim.opt
 local o = vim.o
 
 o.showmode = false
-o.numberwidth = 2
+o.numberwidth = 3
 
 opt.termguicolors = true
 opt.laststatus = 2
