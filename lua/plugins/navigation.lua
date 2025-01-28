@@ -6,5 +6,8 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate"
+  },
+  {
+    "unblevable/quick-scope"
   }
 }
