@@ -1,14 +1,10 @@
 local vim = vim
-
--- set global options
 local g = vim.g
+local opt = vim.opt
+local o = vim.o
 
 g.mapleader = " "
 g.maplocalleader = "²"
-
--- vim options
-local opt = vim.opt
-local o = vim.o
 
 o.showmode = false
 o.numberwidth = 3
@@ -29,4 +25,17 @@ o.softtabstop = 2
 
 opt.number = true
 opt.cursorline = true
+
+-- Folding
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldlevelstart = 1
+opt.foldnestmax = 1
+
+-- Leading/trailing characters
+opt.list = true
+opt.listchars = { tab = '>-', trail = '$' }
+
+-- Show colored line at 80 characters
+opt.colorcolumn = "81"
 

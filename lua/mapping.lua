@@ -3,6 +3,7 @@ local defaults = { noremap = true, silent = true }
 
 -- VIM
 map('i', 'jk', '<Esc>', defaults)
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 
 -- Bufferline
 map('n', '<Tab>', ':BufferLineCycleNext<CR>', defaults)
