@@ -1,4 +1,5 @@
 -- Bootstrap lazy.nvim
+local vim = vim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -26,7 +27,7 @@ require("lazy").setup({
     version = nil, -- always use the latest version,
     cond = nil
   },
-  install = { 
+  install = {
     colorscheme = { "habamax" }, -- try to load color scheme on setup
     missing = true -- try to install missing on startup
   },
