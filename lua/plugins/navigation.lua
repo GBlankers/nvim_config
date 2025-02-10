@@ -10,6 +10,12 @@ return {
     cmd = { "Outline", "OutlineOpen" },
   },
   {
-    "unblevable/quick-scope"
+    "unblevable/quick-scope",
+    "natecraddock/workspaces.nvim",
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = true
   }
 }

@@ -3,12 +3,15 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    "folke/neodev.nvim",
     "m4xshen/autoclose.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-path",
-    "nmac427/guess-indent.nvim"
+    "nmac427/guess-indent.nvim",
+    "mg979/vim-visual-multi",
+    "RaafatTurki/hex.nvim"
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -21,5 +24,12 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-  }
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+    end
+}
 }

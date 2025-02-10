@@ -11,9 +11,27 @@ require("mason-lspconfig").setup({
 	},
 })
 
+-- lsp for neovim configs
+require("neodev").setup({})
+
 -- Nvim lsp
 require("lspconfig").lua_ls.setup({})
-require("lspconfig").pylsp.setup({})
+require("lspconfig").pylsp.setup({
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = {
+					ignore = {
+						'E501', -- lines too long
+						'E241', -- multiple spaces
+						'E226', -- no space around arithmetics
+					},
+				}
+			}
+		}
+	}
+
+})
 require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").gopls.setup({})
 
@@ -76,8 +94,19 @@ require("nvim-treesitter.configs").setup({
 		"go",
 		"rust",
 		"markdown",
+		"json",
 		"vim",
-		"vimdoc"
+		"vimdoc",
+		"bash",
+		"asm",
+		"cpp",
+		"csv",
+		"diff",
+		"dockerfile",
+		"make",
+		"xml",
+		"yaml",
+		"toml"
 	},
 	highlight = {
 		enable = true,
@@ -89,13 +118,23 @@ require("autoclose").setup()
 
 -- Indentation helpers
 require("ibl").setup()
-require("guess-indent").setup()
+require("guess-indent").setup({})
 
 -- Gitsigns
 require("gitsigns").setup()
+
+-- Surround brackets
+require("nvim-surround").setup({
+	highlight = {
+		duration = 500,
+	}
+})
 
 -- Vim config
 vim.diagnostic.config({
 	update_in_insert = true,
 })
+
+-- Hexeditor
+require("hex").setup()
 

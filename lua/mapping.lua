@@ -15,7 +15,15 @@ map('n', '<Leader>x', ':bdelete<CR>', defaults)
 -- Telescope
 map('n', '<leader>ff', ':Telescope find_files<CR>', defaults)
 map('n', '<leader>fw', ':Telescope live_grep<CR>', defaults)
-map('n', '<M-f>', ':Telescope find_files<CR>', defaults)
+map("n", "<A-f>", "yiw:Telescope live_grep default_text=<C-r>0<cr><esc>")
+map("v", "<A-f>", "y:Telescope live_grep default_text=<C-r>0<cr><esc>")
+map('n', '<leader>fp', ':Telescope workspaces<CR>', defaults)
+map('n', '<leader>ft', ':TodoTelescope<CR>', defaults)
 
 -- Outline
 map('n', '<leader>o', ':Outline<CR>', defaults)
+
+-- LSP
+map('n', '<leader>n', vim.diagnostic.goto_next)
+map('n', '<leader>N', vim.diagnostic.goto_prev)
+

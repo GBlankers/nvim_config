@@ -2,14 +2,14 @@ local vim = vim
 
 -- Nvim theme setup
 require("material").setup({
-	plugins = {
-		"gitsigns",
-		"indent-blankline",
-		"nvim-cmp",
-		"nvim-web-devicons",
-		"which-key"
-	},
-	lualine_style = "stealth",
+  plugins = {
+    "gitsigns",
+    "indent-blankline",
+    "nvim-cmp",
+    "nvim-web-devicons",
+    "which-key"
+  },
+  lualine_style = "stealth",
 })
 vim.g.material_style = "oceanic"
 vim.cmd('colorscheme material')
@@ -20,15 +20,16 @@ require("colorizer").setup({
 })
 
 -- Bufferline to display buffers at the top of the window
-require("bufferline").setup({
-  options = {
-    -- style_preset = bufferline.style_preset.minimal,
-    -- style_preset = bufferline.style_preset.no_italic,
-  },
+require("bufferline").setup({})
+
+require("todo-comments").setup({
+  highlight ={
+    multiline = false
+  }
 })
 
 -- Statusline
-require('lualine').setup {
+require('lualine').setup({
   options = {
     theme = "material-stealth",
     component_separators = '',
@@ -36,11 +37,11 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-    lualine_b = { 'filename', 'branch' },
+    lualine_b = { 'filename', 'selectioncount'},
     lualine_c = {
       '%=', --[[ add your center compoentnts here in place of this comment ]]
     },
-    lualine_x = { 'diagnostics', 'searchcount'},
+    lualine_x = { {function() return vim.fn.getcwd() end}, 'diagnostics', 'searchcount'},
     lualine_y = { 'filetype', 'progress' },
     lualine_z = {
       { 'location', separator = { right = '' }, left_padding = 2 },
@@ -56,4 +57,4 @@ require('lualine').setup {
   },
   tabline = {},
   extensions = {},
-}
+})

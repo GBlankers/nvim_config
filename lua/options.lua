@@ -10,6 +10,10 @@ g.maplocalleader = "²"
 -- Show the mode in the command bar
 o.showmode = false
 
+-- Search ignores cases when lowercase search
+opt.ignorecase = true
+opt.smartcase = true
+
 -- Color fixes
 opt.termguicolors = true
 

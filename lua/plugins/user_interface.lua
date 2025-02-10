@@ -18,5 +18,15 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
   }
 }
