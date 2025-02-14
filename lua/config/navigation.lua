@@ -35,9 +35,13 @@ telescope.setup({
       override_file_sorter = true,
       case_mode = "smart_case",
     },
+    file_browser = {
+      hijack_netrw = false,
+    }
   },
 })
 telescope.load_extension("workspaces")
+telescope.load_extension("file_browser")
 
 -- Terminal
 require("toggleterm").setup({

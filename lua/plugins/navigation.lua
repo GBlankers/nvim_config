@@ -17,5 +17,9 @@ return {
     'akinsho/toggleterm.nvim',
     version = "*",
     config = true
+  },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   }
 }

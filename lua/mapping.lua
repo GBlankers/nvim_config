@@ -19,6 +19,7 @@ map("n", "<A-f>", "yiw:Telescope live_grep default_text=<C-r>0<cr><esc>")
 map("v", "<A-f>", "y:Telescope live_grep default_text=<C-r>0<cr><esc>")
 map('n', '<leader>fp', ':Telescope workspaces<CR>', defaults)
 map('n', '<leader>ft', ':TodoTelescope<CR>', defaults)
+map('n', '<leader>fb', '::Telescope file_browser path=%:p:h select_buffer=true<CR><esc>', defaults)
 
 -- Outline
 map('n', '<leader>o', ':Outline<CR>', defaults)
