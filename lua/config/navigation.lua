@@ -25,7 +25,8 @@ telescope.setup({
       "--column",
       "--smart-case",
     },
-    file_ignore_patterns = { "node_modules", "go/pkg", "output/build"},
+    file_ignore_patterns = { "node_modules", "go/pkg", "output/build",
+                             "bazel-cache"},
   },
 
   extensions = {
@@ -40,6 +41,7 @@ telescope.setup({
     }
   },
 })
+telescope.load_extension("fzf")
 telescope.load_extension("workspaces")
 telescope.load_extension("file_browser")
 

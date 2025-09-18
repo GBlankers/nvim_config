@@ -1,9 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    "folke/neodev.nvim",
     "m4xshen/autoclose.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
@@ -12,6 +10,17 @@ return {
     "nmac427/guess-indent.nvim",
     "mg979/vim-visual-multi",
     "RaafatTurki/hex.nvim"
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -33,22 +42,31 @@ return {
     end
   },
   {
-    'cameron-wags/rainbow_csv.nvim',
-    config = true,
-    ft = {
-        'csv',
-        'tsv',
-        'csv_semicolon',
-        'csv_whitespace',
-        'csv_pipe',
-        'rfc_csv',
-        'rfc_semicolon'
+    "hat0uma/csvview.nvim",
+    opts = {
+      parser = { comments = { "#", "//" } },
+      keymaps = {
+        -- Text objects for selecting fields
+        textobject_field_inner = { "if", mode = { "o", "x" } },
+        textobject_field_outer = { "af", mode = { "o", "x" } },
+        -- Excel-like navigation:
+        -- Use <Tab> and <S-Tab> to move horizontally between fields.
+        -- Use <Enter> and <S-Enter> to move vertically between rows and place the cursor at the end of the field.
+        -- Note: In terminals, you may need to enable CSI-u mode to use <S-Tab> and <S-Enter>.
+        jump_next_field_end = { "<Tab>", mode = { "n", "v" } },
+        jump_prev_field_end = { "<S-Tab>", mode = { "n", "v" } },
+        jump_next_row = { "<Enter>", mode = { "n", "v" } },
+        jump_prev_row = { "<S-Enter>", mode = { "n", "v" } },
+      },
     },
-    cmd = {
-        'RainbowDelim',
-        'RainbowDelimSimple',
-        'RainbowDelimQuoted',
-        'RainbowMultiDelim'
+    cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {
+      disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "oil" },
+      enabled = false,
     }
-  }
+  },
 }

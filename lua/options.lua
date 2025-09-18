@@ -36,11 +36,11 @@ o.shiftwidth = 2
 o.smartindent = true
 o.tabstop = 2
 o.softtabstop = 2
+g.editorconfig = false
 
 -- Show numbers, lsp status in the left line
-opt.number = true
 o.numberwidth = 3
-opt.signcolumn = "yes"
+o.statuscolumn = "%s%{v:relnum}"
 
 -- Show line where the cursor is
 opt.cursorline = true
@@ -61,3 +61,23 @@ opt.colorcolumn = "81"
 -- Auto line break comments at 80 characters limit
 opt.textwidth = 80
 opt.formatoptions = "c"
+
+-- Set line limit to 100 if rust
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "rust",
+    command = "set colorcolumn=81,101"
+})
+
+-- Auto update lazy plugins
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = augroup("autoupdate"),
+    callback = function()
+        if require("lazy.status").has_updates then
+            require("lazy").update({ show = false, })
+        end
+    end,
+})

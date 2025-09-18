@@ -2,38 +2,12 @@ local vim = vim
 
 -- Mason
 require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"lua_ls",
-		"pylsp",
-		"rust_analyzer",
-		"gopls"
-	},
-})
-
--- lsp for neovim configs
-require("neodev").setup({})
 
 -- Nvim lsp
-require("lspconfig").lua_ls.setup({})
-require("lspconfig").pylsp.setup({
-	settings = {
-		pylsp = {
-			plugins = {
-				pycodestyle = {
-					ignore = {
-						'E501', -- lines too long
-						'E241', -- multiple spaces
-						'E226', -- no space around arithmetics
-					},
-				}
-			}
-		}
-	}
-
-})
-require("lspconfig").rust_analyzer.setup({})
-require("lspconfig").gopls.setup({})
+vim.lsp.enable("lua_ls");
+vim.lsp.enable("pylsp")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("gopls")
 
 -- Cmp
 local cmp = require("cmp")
@@ -133,6 +107,8 @@ require("nvim-surround").setup({
 -- Vim config
 vim.diagnostic.config({
 	update_in_insert = true,
+	virtual_text = false,
+	virtual_lines = true,
 })
 
 -- Hexeditor

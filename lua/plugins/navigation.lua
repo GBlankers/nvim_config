@@ -5,6 +5,10 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" }
   },
   {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make'
+  },
+  {
     "hedyhli/outline.nvim",
     lazy = true,
     cmd = { "Outline", "OutlineOpen" },

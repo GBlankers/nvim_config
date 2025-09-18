@@ -1,5 +1,3 @@
-local vim = vim
-
 -- Nvim theme setup
 require("material").setup({
   plugins = {
