@@ -3,10 +3,6 @@ return {
     "williamboman/mason.nvim",
     "neovim/nvim-lspconfig",
     "m4xshen/autoclose.nvim",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-path",
     "nmac427/guess-indent.nvim",
     "mg979/vim-visual-multi",
     "RaafatTurki/hex.nvim"
@@ -21,6 +17,10 @@ return {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       },
     },
+  },
+  {
+    'saghen/blink.cmp',
+    version = '1.*',
   },
   {
     "nvim-treesitter/nvim-treesitter",

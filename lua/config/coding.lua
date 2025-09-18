@@ -8,55 +8,29 @@ vim.lsp.enable("lua_ls");
 vim.lsp.enable("pylsp")
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("gopls")
+-- vim.lsp.enable("clangd")
 
--- Cmp
-local cmp = require("cmp")
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			vim.snippet.expand(args.body)
-		end,
+-- Blink cmp
+require("blink.cmp").setup({
+	keymap = {
+		preset = 'none',
+		['<Up>'] = { 'select_prev', 'fallback'},
+		['<Down>'] = { 'select_next', 'fallback'},
+		['<S-Tab>'] = { 'select_prev', 'fallback'},
+		['<Tab>'] = { 'select_next', 'fallback'},
+		['<CR>'] = { 'select_and_accept', 'fallback' },
 	},
-	sources = cmp.config.sources(
-	{
-		{ name = "nvim_lsp" },
+	completion = {
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 500,
+		}
 	},
-	{
-		{ name = "buffer" },
+	sources = {
+		default = { 'lsp', 'path', 'snippets', 'buffer' },
 	},
-	{
-		{ name = "path"},
-	}),
-	mapping = {
-		["<C-p>"] = cmp.mapping.select_prev_item(),
-		["<C-n>"] = cmp.mapping.select_next_item(),
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.close(),
-
-		["<CR>"] = cmp.mapping.confirm {
-			behavior = cmp.ConfirmBehavior.Insert,
-			select = true,
-		},
-
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-	},
+	fuzzy = { implementation = "prefer_rust" },
+	signature = { enabled = true }
 })
 
 -- Treesitter
