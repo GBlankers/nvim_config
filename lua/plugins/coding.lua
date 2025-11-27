@@ -69,4 +69,7 @@ return {
       enabled = false,
     }
   },
+  {
+    "laktak/tome"
+  }
 }
