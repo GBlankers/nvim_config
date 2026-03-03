@@ -14,7 +14,11 @@ vim.cmd('colorscheme material')
 
 -- Colorize color names and hexes
 require("colorizer").setup({
-  lazy_load = true,
+  options = {
+    parsers = {
+      css = true,
+    },
+  },
 })
 
 -- Bufferline to display buffers at the top of the window
